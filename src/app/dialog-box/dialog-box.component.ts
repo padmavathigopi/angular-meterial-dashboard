@@ -1,39 +1,34 @@
 //dialog-box.component.ts
-import { Component, Inject, Optional } from '@angular/core';
+import { Component, Inject, Optional, OnInit} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+import { CommonServicesService } from '../common-services.service';
 
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',
   styleUrls: ['./dialog-box.component.css']
 })
-export class DialogBoxComponent {
 
-  action:string;
-  local_data:any;
-
+export class DialogBoxComponent implements OnInit{
+local_data:any;
+action:string;
   constructor(
+    public commonServicesService:CommonServicesService,
     public dialogRef: MatDialogRef<DialogBoxComponent>,
-    //@Optional() is used to prevent error if no data is passed
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: PeriodicElement) {
-    console.log(data);
-    this.local_data = {...data};
-    this.action = this.local_data.action;
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) { this.local_data = {...data.data};
+  this.action = data.action;}
+
+  ngOnInit() {
+    // Initialize the form with the existing data
   }
 
-  doAction(){
-    this.dialogRef.close({event:this.action,data:this.local_data});
-  }
+  updateData(id:number,data:any) {
+this.commonServicesService.update(id,data).subscribe();
 
-  closeDialog(){
-    this.dialogRef.close({event:'Cancel'});
-  }
 
+    // Update the data using the service and close the modal
+    this.dialogRef.close();
+  }
+ 
 }

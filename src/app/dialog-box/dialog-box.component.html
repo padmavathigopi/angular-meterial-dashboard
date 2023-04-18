@@ -1,20 +1,27 @@
 
 <!-- dialog-box.component.html -->
-<h1 mat-dialog-title>Row Action :: <strong>{{action}}</strong></h1>
-<div mat-dialog-content style=" padding: 24px 13px 20px 24px !important;">
-  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
-    <input placeholder="{{action}} Name" matInput [(ngModel)]="local_data.name">
-   
+<h1 mat-dialog-title>Row Action :: <strong>Update</strong></h1>
+<div mat-dialog-content style="padding: 24px 13px 20px 24px !important;">
+  <mat-form-field *ngIf="action !== 'Delete'; else elseTemplate">
+    <input placeholder="Update Name" matInput [(ngModel)]="local_data.title">
   </mat-form-field>
-  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
-    <input placeholder="{{action}} Weight" matInput [(ngModel)]="local_data.weight">
-   
+  <mat-form-field *ngIf="action !== 'Delete'; else elseTemplate">
+    <input placeholder="Update Weight" matInput [(ngModel)]="local_data.description">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action !== 'Delete'; else elseTemplate">
+    <input placeholder="Update Weight" matInput [(ngModel)]="local_data.author">
+  </mat-form-field>
+  <mat-form-field *ngIf="action !== 'Delete'; else elseTemplate">
+    <input placeholder="Update Weight" matInput [(ngModel)]="local_data.publish">
   </mat-form-field>
   <ng-template #elseTemplate>
-    Sure to delete <b>{{local_data.name}}</b>?
+    Sure to delete <b>{{local_data.title}}</b>?
   </ng-template>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="doAction()">{{action}}</button>
-  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+<div mat-dialog-actions style="justify-content: flex-end;">
+  <button mat-button (click)="updateData(local_data.id,local_data)" [mat-dialog-close]="true">
+    <span >Update</span>
+  </button>
+  <button mat-button mat-flat-button color="warn" [mat-dialog-close]="false">Cancel</button>
 </div>

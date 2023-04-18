@@ -28,8 +28,8 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatNativeDateModule} from '@angular/material/core';
 import { CommonServicesService } from './common-services.service';
-
-
+import { MatIconRegistry } from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +43,7 @@ import { CommonServicesService } from './common-services.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    
+    MatSnackBarModule,
     MatNativeDateModule,
     CommonModule,
     MatSortModule,
@@ -66,7 +66,9 @@ import { CommonServicesService } from './common-services.service';
   
   ],
   providers: [
-    CommonServicesService
+    CommonServicesService,
+    MatIconRegistry,
+    
   ],
   bootstrap: [AppComponent]
 })

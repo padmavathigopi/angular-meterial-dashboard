@@ -23,11 +23,11 @@
 
 
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action </th>
-    <td mat-cell *matCellDef="let element" class="action-link"> 
-      <button mat-button >Edit</button> | 
-      <button mat-button  >Delete</button>  
-    </td>
+    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="action-link"> 
+      <button mat-mini-fab (click)="openUpdateModal(element.id, element)" style="margin-right:8px;"><mat-icon>edit</mat-icon></button>     
+      <button mat-mini-fab style="background: lightgray;" (click)="delete(element.id)" ><mat-icon>delete</mat-icon></button>  
+    </mat-cell>
   </ng-container>
 
 

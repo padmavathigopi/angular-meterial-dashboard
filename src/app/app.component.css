@@ -29,7 +29,15 @@
     list-style-type: none;
     padding-bottom: 10px;
   }
+  .sidnav li {
+    display: flex;
+    align-items: center;
+  }
+  
   .mat-drawer-container {
     background-color:white !important;
     color:black !important;
+}
+.sidebar-nav:hover +a{
+background: grey;
 }

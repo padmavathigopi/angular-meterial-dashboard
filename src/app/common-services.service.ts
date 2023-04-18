@@ -22,13 +22,14 @@ export class CommonServicesService {
     return this.http.post(this.baseUrl, data);
   }
 
-  update(id: any, data: any): Observable<any> {
+  update(id :any,data: any): Observable<Testtable> {
     return this.http.put(`${this.baseUrl}/${id}`, data);
   }
 
-  delete(id: any): Observable<any> {
+  delete(id:number): Observable<Testtable> {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
+  
 
   deleteAll(): Observable<any> {
     return this.http.delete(this.baseUrl);

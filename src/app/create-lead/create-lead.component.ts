@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { CommonServicesService } from '../common-services.service';
 import { Testtable } from '../models/reports-table';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 interface currency {
   value: string;
@@ -39,7 +39,7 @@ export class CreateLeadComponent implements OnInit {
     author:''
   };
   submitted=false;
-  constructor(private commonServicesService:CommonServicesService) {};
+  constructor(private commonServicesService:CommonServicesService,private snackBar: MatSnackBar) {};
   ngOnInit(): void {
     
   }
@@ -53,14 +53,20 @@ export class CreateLeadComponent implements OnInit {
     this.commonServicesService.create(data).subscribe({
       next:(res)=>{
         res.send(data);
-        console.log(res);
+        
         this.submitted=true;
-        alert('Lead created successfully!');
+     
+        
+      
       },
       error:(e)=>console.error(e)
     });
+    this.snackBar.open('form submitted','Dismiss', {
+      duration:3000
+    });
+    this.newtestingtable();
   }
-
+  
   newtestingtable():void{
     this.submitted=false;
     this.testtable={
