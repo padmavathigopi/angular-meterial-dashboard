@@ -74,25 +74,6 @@ export class ManageLeadComponent implements AfterViewInit {
  
   
   
-  //
-//selectallcheckbox
-isAllSelected() {
-  const numSelected = this.selection.selected.length;
-  const numRows = this.dataSource.data.length;
-  return numSelected === numRows;
-}
-
-/** Selects all rows if they are not all selected; otherwise clear selection. */
-masterToggle() {
-  this.isAllSelected() ?
-      this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
-}
-
-
-  /** The label for the checkbox on the passed row */
- 
-
 
   // selectallcheckbox
   fireFilterEvent(event: Event) {

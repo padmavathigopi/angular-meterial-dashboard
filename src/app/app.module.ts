@@ -30,6 +30,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { CommonServicesService } from './common-services.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HttpClientModule,
     MatSnackBarModule,
     MatNativeDateModule,
+    MatToolbarModule,
     CommonModule,
+    FlexLayoutModule,
     MatSortModule,
     MatDialogModule,
     MatCheckboxModule,

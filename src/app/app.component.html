@@ -1,20 +1,12 @@
 <mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened="true" class="sidnav">
-<div class="sidebar-nav">
-  <ul>
-    <h4>INFERCON ADMIN</h4>
-     <li ><mat-icon>home</mat-icon><a  routerLink="home">Home</a></li>
-    <li><span class="material-symbols-outlined">
-      checklist
-      </span><a routerLink="manage-lead">Manage Leads</a></li>
-    <li><span class="material-symbols-outlined">
-      label_important
-      </span><a routerLink="reports">Reports</a></li>
-    <li><span class="material-symbols-outlined">
-      edit
-      </span><a routerLink="create-lead">Create Lead</a></li>
-  </ul>
-</div>
-  </mat-drawer>
-  <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
+  <mat-toolbar color="primary">
+    <span>ADMIN</span>
+    <div class="spacer"></div>
+    
+    <a mat-button routerLink="home">Home</a>
+    <a mat-button  routerLink="manage-lead">Manage Leads</a>
+    <a mat-button routerLink="reports">Reports</a>
+    <a mat-button routerLink="create-lead">Create Lead</a>
+    </mat-toolbar>
+ <router-outlet></router-outlet>
 </mat-drawer-container>

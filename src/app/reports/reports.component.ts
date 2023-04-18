@@ -1,7 +1,8 @@
-import {Component,OnInit} from '@angular/core';
+import {Component,OnInit,ViewChild} from '@angular/core';
 import {CommonServicesService } from 'src/app/common-services.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+import {MatPaginator} from '@angular/material/paginator';
 import { Testtable } from '../models/reports-table';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 @Component({
@@ -54,6 +55,19 @@ export class ReportsComponent implements OnInit{
       
  
   
+  }
+  fireFilterEvent(event: Event) {
+    const input = (event.target as HTMLInputElement).value;
+    this.applyFilter(input);
+  }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
 }

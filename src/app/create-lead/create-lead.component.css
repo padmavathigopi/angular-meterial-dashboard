@@ -13,13 +13,13 @@
   .subbtn{
    
     padding:20px;
-    border:1px solid grey;
+   
     float:left;
     margin:5px;
   }
   .clrbtn{
     padding:20px;
-    border:1px solid grey;
+   
     margin:5px;
   }
   mat-form-field {

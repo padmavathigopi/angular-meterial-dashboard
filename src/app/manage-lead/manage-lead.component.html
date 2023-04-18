@@ -5,20 +5,7 @@
       <button class="addbtn" mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Row</button>
 <table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
   <!-- checkbox -->
-  <ng-container matColumnDef="select">
-    <th mat-header-cell *matHeaderCellDef>
-      <mat-checkbox (change)="$event ? masterToggle() : null"
-                    [checked]="selection.hasValue() && isAllSelected()"
-                    [indeterminate]="selection.hasValue() && !isAllSelected()">
-      </mat-checkbox>
-    </th>
-    <td mat-cell *matCellDef="let row">
-      <mat-checkbox (click)="$event.stopPropagation()"
-                    (change)="$event ? selection.toggle(row) : null"
-                    [checked]="selection.isSelected(row)">
-      </mat-checkbox>
-    </td>
-  </ng-container>
+ 
   <!-- checkbox -->
       <!-- Position Column -->
       <ng-container matColumnDef="position">
@@ -47,8 +34,8 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element" class="action-link"> 
-          <button mat-button (click)="openDialog('Update',element)">Edit</button> | 
-          <button mat-button style="background: #f8b0f8b3;" (click)="openDialog('Delete',element)">Delete</button>  
+          <button color="primary" mat-raised-button (click)="openDialog('Update',element)">Edit</button> | 
+          <button mat-raised-button color="basic" (click)="openDialog('Delete',element)">Delete</button>  
         </td>
       </ng-container>
   

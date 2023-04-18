@@ -41,3 +41,6 @@
 .sidebar-nav:hover +a{
 background: grey;
 }
+.spacer{
+  flex: 1 1 auto;
+}
