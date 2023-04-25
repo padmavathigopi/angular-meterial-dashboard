@@ -10,7 +10,19 @@ export interface admindata{
   name?:string;
   course?:string;
   status?:string;
+  marketer_name?:string;
+  service_type?:string;
+  joining_date?:Date;
+  email?:string;
+  qualification?:string;
+  working_sts?:string;
+  source?:string;
+  address?:string;
+  required_services?:string;
+  color_val?:string;
+  followup_date?:string;
   id?:number;
+  contact_no?:number;
 
 }
 /**  Copyright 2019 Google Inc. All Rights Reserved.

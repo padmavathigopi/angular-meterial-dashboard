@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Testtable } from '../app/models/reports-table';
+import { admindata } from '../app/models/reports-table';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CommonServicesService {
   private baseUrl = 'http://localhost:8080/api/testingtables/';
-
+private adminUrl='http://localhost:8082/api/admindbs/';
   constructor(private http: HttpClient) { }
   getAll(): Observable<Testtable[]> {
     return this.http.get<Testtable[]>(this.baseUrl);
@@ -38,4 +40,28 @@ export class CommonServicesService {
   findByTitle(title: any): Observable<Testtable[]> {
     return this.http.get<Testtable[]>(`${this.baseUrl}?title=${title}`);
   }
+
+
+
+
+
+
+
+
+  getAdmin(): Observable<admindata[]> {
+    return this.http.get<admindata[]>(this.adminUrl);
+  }
+  
+  createAdmin(data: any): Observable<any> {
+    return this.http.post(this.adminUrl, data);
+  }
+  
+  updateAdmin(id: any, data: any): Observable<any> {
+    return this.http.put(`${this.adminUrl}/${id}`, data);
+  }
+  
+  deleteAdmin(id: any): Observable<admindata> {
+    return this.http.delete(`${this.adminUrl}/${id}`);
+  }
+  
 }
